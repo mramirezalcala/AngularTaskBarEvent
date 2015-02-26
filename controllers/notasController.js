@@ -7,8 +7,6 @@ Agenda.controller("notasController", function($scope, notasModel ,  $filter, ngT
     // Guardamos el scope en una variable
     var data = $scope.notas;
     
-    
-    /* Funcion para cargar el input text de filtro */
     $scope.tableParams2 = new ngTableParams({
         page: 1,            // Indicamos que pagina queremos que muestre
         count: 10,          // cNumero de registros que mostramos por pagina
@@ -32,7 +30,6 @@ Agenda.controller("notasController", function($scope, notasModel ,  $filter, ngT
     	    }
     	});
     
-    /* Funcion para cargar la ordenacion de la tabla por columnas*/
     $scope.tableParams = new ngTableParams({
         page: 1,            // Indicamos que pagina queremos que muestre
         count: 10,          // Numero de registros que mostramos por pagina
