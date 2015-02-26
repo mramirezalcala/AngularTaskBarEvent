@@ -27,16 +27,26 @@ Agenda.service("notasModel", function(){
 Agenda.directive("startbuttonsbutton", function(){
 	return {
 		restrict: "E",
-		template: "<button addbuttons><i class='fa fa-play'></i></button>"
+		template: "<a href='#/startProcess' addbuttonsStart style='color: green'><i class='fa fa-play'></i></a>"
 	};
 });
 
 Agenda.directive("stopbuttonsbutton", function(){
 	return {
 		restrict: "E",
-		template: "<button addbuttons><i class='fa fa-stop'></i></button>"
+		template: "<a href='#/stopProcess' addbuttons><i class='fa fa-stop' style='color: red;margin-left: 10px;'></i></a>"
 	};
 });
 
+//Directive for adding buttons on click that show an alert on click
+/*Agenda.directive("addbuttonsStart", function($compile){
+	return function(scope, element, attrs){
+		element.bind("click", function(){
+			scope.count++;
+			angular.element(document.getElementById('space-for-buttons')).append($compile("<div><button class='btn btn-default' data-alert="+scope.count+">Show alert #"+scope.count+"</button></div>")(scope));
+		});
+	};
+});
+*/
 
 

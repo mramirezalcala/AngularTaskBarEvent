@@ -1,8 +1,16 @@
 var configAgenda = function($routeProvider){
  
     $routeProvider.when("/home", {
-        controller: "notasController",
+        controller: "mainController",
         templateUrl: "views/home.html"
+    })
+    .when("/startProcess", {
+        controller : "addController",
+        templateUrl : "views/startProcess.html"
+    })
+    .when("/stopProcess", {
+        controller : "editController",
+        templateUrl : "views/stopProcess.html"
     });
  
 };
