@@ -10,15 +10,12 @@ Agenda.service("notasModel", function(){
             { id: "82" , name: "Modificación datos personales", estado: "Parada"},
             { id: "36" , name: "Anulación de tarjeta", estado: "Finalizada"},
             { id: "2" , name: "Datos personales", estado: "Finalizada"},
-            { id: "35" , name: "Anulación de tarjeta", estado: "En curso"},
-            { id: "98" , name: "Anulación de tarjeta", estado: "En curso"},
-            { id: "41" , name: "Datos personales", estado: "En curso"},
-            { id: "36" , name: "Cambio de dirección", estado: "En curso"},
-            { id: "45" , name: "Anulación de tarjeta", estado: "En curso"},
-            { id: "36" , name: "Alta de tarjeta", estado: "En proceso"},
-            { id: "24" , name: "Alta de tarjeta", estado: "Finalizada"},
-            { id: "9" , name: "Alta de tarjeta", estado: "Finalizada"}
-        ]
+            { id: "2" , name: "Datos personales", estado: "Finalizada"},
+            { id: "2" , name: "Datos personales", estado: "Finalizada"},
+            { id: "2" , name: "Datos personales", estado: "Finalizada"},
+            { id: "2" , name: "Datos personales", estado: "Finalizada"},
+            { id: "2" , name: "Datos personales", estado: "Finalizada"},
+        ];
     };
  
 });
@@ -27,7 +24,7 @@ Agenda.service("notasModel", function(){
 Agenda.directive("startbuttonsbutton", function(){
 	return {
 		restrict: "E",
-		template: "<a href='#/startProcess' addbuttonsStart style='color: green'><i class='fa fa-play'></i></a>"
+		template: "<a href='#/startProcess' addbuttonsStart style='color: green;'><i class='fa fa-play'></i></a>"
 	};
 });
 

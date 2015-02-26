@@ -8,28 +8,50 @@
 		</div>
                 <div class="col-md-12 col-xs-12 col-ms-12 col-lg-12">
                 	
-                	<!-- <p><strong>Filter:</strong> {{tableParams.filter()|json}} -->
-                	<!-- Para barra de busqueda poner el (data-show-filter=true y el (data-filter="{ 'name': 'text' }) en el campo que quieras filtrar
-                		 Tambien cambiar el nombre del data-ng-table="tableParams2" al de la nueva ordenación-->
-                	<!-- <button data-ng-click="tableParams2.filter({})" class="btn btn-default pull-right" style="margin-bottom: 15px;">Reset Order</button> -->
-                	<button data-ng-click="tableParams2.filter({})" class="btn btn-default pull-right" style="margin-bottom: 15px;">Reset Filter</button>
-	                <table data-ng-table="tableParams2" data-show-filter="true" class="table table-striped " >
-	                       <tr data-ng-repeat="user in $data">
-					            <td data-title="'Id'" data-sortable="'id'" class="col-md-2 col-xs-2 col-ms-2 col-lg-2">
-					                {{user.id}}
-					            </td>
-					            <td data-title="'Name'" data-sortable="'name'" data-filter="{ 'name': 'text' }" class="col-md-6 col-xs-6 col-ms-6 col-lg-6"> 
-					                {{user.name}}
-					            </td> 
-					            
-					            <td data-title="'State'" data-sortable="'estado'" class="col-md-2 col-xs-2 col-ms-2 col-lg-3">
-					                {{user.estado}}
-					            </td>
-					            <td data-title="'Actions'" class="col-md-2 col-xs-2 col-ms-2 col-lg-1">
-					               <startbuttonsbutton></startbuttonsbutton>
-					               <stopbuttonsbutton></stopbuttonsbutton>
-					            </td>
+                	
+				  <form>
+				    <div class="form-group">
+				      <div class="input-group">
+				        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+				        	<input type="text" class="form-control" placeholder="Search" data-ng-model="searchFish">
+				      </div>      
+				    </div>
+				  </form>
+  
+	                <table data-ng-table="tableParams2" class="table table-striped " >
+	              	  <thead>
+	                       <tr >
+	                       		<td data-ng-click="sortType = 'id'; sortReverse = !sortReverse" style="cursor: hand;">
+							            Id 
+							            <span data-ng-show="sortType == 'id' && !sortReverse" class="fa fa-caret-down"></span>
+							            <span data-ng-show="sortType == 'id' && sortReverse" class="fa fa-caret-up"></span>
+						        </td>
+						        <td data-ng-click="sortType = 'name'; sortReverse = !sortReverse" style="cursor: hand;">
+							         	 Name
+							            <span data-ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+							            <span data-ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+						        </td>
+					            <td data-ng-click="sortType = 'estado'; sortReverse = !sortReverse" style="cursor: hand;">
+						          		State 
+						            <span data-ng-show="sortType == 'estado' && !sortReverse" class="fa fa-caret-down"></span>
+						            <span data-ng-show="sortType == 'estado' && sortReverse" class="fa fa-caret-up"></span>
+						        </td>
+						        <td>
+						          		Actions 
+						        </td>
 					        </tr>
+					      </thead>
+					      <tbody>
+						      <tr data-ng-repeat="user in $data | orderBy:sortType:sortReverse | filter:searchFish">
+						        <td>{{ user.id }}</td>
+						        <td>{{ user.name }}</td>
+						        <td>{{ user.estado }}</td>
+						        <td>
+						        	<startbuttonsbutton></startbuttonsbutton>
+					               	<stopbuttonsbutton></stopbuttonsbutton>
+					             </td>
+						      </tr>
+						    </tbody>
 	                </table>
                 </div>
 
